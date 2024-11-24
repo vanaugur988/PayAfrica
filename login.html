@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - PayAfrica</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f0ff; /* Bleu clair */
+        }
+        /* Header */
+        header {
+            background-color: #004aad;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            width: 500px; /* Largeur fixe */
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 25px; /* Bordures arrondies améliorées */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #004aad;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 15px; /* Plus arrondi pour les champs */
+            transition: border-color 0.3s, box-shadow 0.3s;
+            width: 100%; /* Pour occuper toute la largeur du conteneur */
+            box-sizing: border-box; /* Inclure le padding dans la largeur */
+        }
+        input:focus {
+            border-color: #004aad;
+            box-shadow: 0 0 5px rgba(0, 74, 173, 0.5);
+            outline: none;
+        }
+        button {
+            padding: 12px;
+            background-color: #004aad;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 15px; /* Plus arrondi pour le bouton */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #003580;
+            transform: scale(1.02);
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .link a {
+            color: #004aad;
+            text-decoration: none;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        PayAfrica - Connexion
+    </header>
+
+    <div class="container">
+        <h1>Se connecter</h1>
+        <form id="loginForm" action="javascript:void(0)">
+            <!-- Identifiant : email, téléphone ou username -->
+            <label for="login">Email, Numéro de téléphone ou Username</label>
+            <input type="text" id="login" name="login" placeholder="Entrez votre email, numéro ou username" required>
+
+            <!-- Mot de passe -->
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+
+            <!-- Bouton -->
+            <button type="submit">Se connecter</button>
+        </form>
+        <div class="link">
+            Vous n'avez pas de compte ? <a href="inscription.html">Créez un compte</a>
+        </div>
+        <div class="link">
+            <a href="forgot_password.html">Mot de passe oublié ?</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            var login = document.getElementById('login').value;
+            var password = document.getElementById('password').value;
+
+            // Valider l'adresse email, téléphone ou username
+            var isEmailValid = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(login);
+            var isPhoneValid = /^[0-9]{10}$/.test(login); // 10 chiffres pour le numéro de téléphone
+            var isUsernameValid = /^[a-zA-Z0-9_]{3,16}$/.test(login); // Username entre 3 et 16 caractères alphanumériques
+
+            if (!isEmailValid && !isPhoneValid && !isUsernameValid) {
+                e.preventDefault(); // Empêche la soumission si les données sont invalides
+                alert("Veuillez entrer un email valide, un numéro de téléphone ou un nom d'utilisateur.");
+            }
+
+            if (!password) {
+                e.preventDefault(); // Empêche la soumission si le mot de passe est vide
+                alert("Veuillez entrer votre mot de passe.");
+            }
+
+            if (isEmailValid || isPhoneValid || isUsernameValid) {
+                // Si la validation est correcte, rediriger vers le tableau de bord
+                setTimeout(function() {
+                    window.location.href = "dashboard.html"; // Redirection vers le tableau de bord
+                }, 500); // Délai pour afficher la soumission du formulaire
+            }
+        });
+    </script>
+</body>
+</html>
+    

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - PayAfrica</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f0ff; /* Bleu clair */
+        }
+        /* Header */
+        header {
+            background-color: #004aad;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            width: 500px; /* Largeur fixe */
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 25px; /* Bordures arrondies améliorées */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #004aad;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select {
+            margin-bottom: 15px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 15px; /* Plus arrondi pour les champs */
+            transition: border-color 0.3s, box-shadow 0.3s;
+            width: 100%; /* Pour occuper toute la largeur du conteneur */
+            box-sizing: border-box; /* Inclure le padding dans la largeur */
+        }
+        input:focus, select:focus {
+            border-color: #004aad;
+            box-shadow: 0 0 5px rgba(0, 74, 173, 0.5);
+            outline: none;
+        }
+        button {
+            padding: 12px;
+            background-color: #004aad;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 15px; /* Plus arrondi pour le bouton */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #003580;
+            transform: scale(1.02);
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .link a {
+            color: #004aad;
+            text-decoration: none;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+        .search-container {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .search-container input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        .search-results {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            position: absolute;
+            width: 100%;
+            top: 40px;
+            z-index: 10;
+            background: white;
+        }
+        .search-result {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .search-result:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        PayAfrica - Inscription
+    </header>
+
+    <div class="container">
+        <h1>Inscrivez-vous</h1>
+        <form id="signupForm" action="javascript:void(0)">
+            <!-- Nom complet -->
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
+
+            <!-- Adresse e-mail -->
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" placeholder="exemple@email.com" required>
+
+            <!-- Date de naissance -->
+            <label for="dob">Date de naissance</label>
+            <input type="text" id="dob" name="dob" placeholder="JJ/MM/AAAA" required>
+
+            <!-- Nom d'utilisateur -->
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
+
+            <!-- Numéro de téléphone avec indicatif -->
+            <label for="phone">Numéro de téléphone</label>
+            <div style="display: flex;">
+                <!-- Barre de recherche pour filtrer les pays -->
+                <div class="search-container">
+                    <input type="text" id="countrySearch" placeholder="Rechercher un pays" oninput="filterCountries()">
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+
+                <!-- Sélection de l'indicatif pays -->
+                <select id="countryCode" name="countryCode" required>
+                    <option value="+223">Mali (+223)</option>
+                    <option value="+225">Côte d'Ivoire (+225)</option>
+                    <option value="+229">Bénin (+229)</option>
+                    <option value="+230">Maurice (+230)</option>
+                    <option value="+231">Liberia (+231)</option>
+                    <option value="+232">Sierra Leone (+232)</option>
+                    <option value="+233">Ghana (+233)</option>
+                    <option value="+234">Nigeria (+234)</option>
+                    <option value="+235">Tchad (+235)</option>
+                    <option value="+236">République Centrafricaine (+236)</option>
+                    <option value="+237">Cameroun (+237)</option>
+                    <option value="+241">Gabon (+241)</option>
+                    <option value="+242">Congo (+242)</option>
+                    <option value="+243">République Démocratique du Congo (+243)</option>
+                    <option value="+249">Soudan (+249)</option>
+                    <option value="+251">Éthiopie (+251)</option>
+                    <option value="+252">Somalie (+252)</option>
+                    <option value="+253">Djibouti (+253)</option>
+                    <option value="+254">Kenya (+254)</option>
+                    <option value="+255">Tanzanie (+255)</option>
+                    <option value="+256">Ouganda (+256)</option>
+                    <option value="+260">Zambie (+260)</option>
+                    <option value="+261">Madagascar (+261)</option>
+                    <option value="+262">La Réunion (+262)</option>
+                    <option value="+265">Malawi (+265)</option>
+                    <option value="+266">Lesotho (+266)</option>
+                    <option value="+267">Botswana (+267)</option>
+                    <option value="+268">Eswatini (+268)</option>
+                    <option value="+269">Comores (+269)</option>
+                    <option value="+27">Afrique du Sud (+27)</option>
+                    <option value="+254">Kenya (+254)</option>
+                    <option value="+213">Algérie (+213)</option>
+                    <option value="+221">Sénégal (+221)</option>
+                    <option value="+230">Maurice (+230)</option>
+                    <!-- Ajoutez plus de pays ici si nécessaire -->
+                </select>
+
+                <!-- Champ pour le numéro de téléphone -->
+                <input type="text" id="phone" name="phone" placeholder="Entrez votre numéro" required>
+            </div>
+
+            <!-- Mot de passe -->
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" placeholder="Choisissez un mot de passe" required>
+
+            <!-- Confirmer mot de passe -->
+            <label for="confirmPassword">Confirmer le mot de passe</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmez votre mot de passe" required>
+
+            <!-- Message d'erreur -->
+            <p id="error-message" class="error">Les mots de passe ne correspondent pas.</p>
+
+            <!-- Bouton -->
+            <button type="submit">Créer un compte</button>
+        </form>
+        <div class="link">
+            Vous avez déjà un compte ? <a href="login.html">Connectez-vous ici</a>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour rechercher et filtrer les pays
+        function filterCountries() {
+            var input = document.getElementById("countrySearch").value.toLowerCase();
+            var resultsContainer = document.getElementById("searchResults");
+            var countryOptions = document.querySelectorAll("#countryCode option");
+            var results = [];
+            
+            countryOptions.forEach(function(option) {
+                if (option.textContent.toLowerCase().includes(input)) {
+                    results.push(option);
+                }
+            });
+
+            resultsContainer.innerHTML = '';
+            results.forEach(function(option) {
+                var resultDiv = document.createElement('div');
+                resultDiv.textContent = option.textContent;
+                resultDiv.classList.add('search-result');
+                resultDiv.onclick = function() {
+                    document.getElementById('countryCode').value = option.value;
+                    resultsContainer.innerHTML = '';
+                    document.getElementById("countrySearch").value = ""; // Clear search field
+                };
+                resultsContainer.appendChild(resultDiv);
+            });
+        }
+
+        // Validation du formulaire
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                e.preventDefault(); // Empêche la soumission
+                document.getElementById('error-message').style.display = 'block'; // Affiche l'erreur
+            } else {
+                document.getElementById('error-message').style.display = 'none'; // Cache l'erreur
+
+                // Si tout est validé, rediriger vers le dashboard
+                setTimeout(function() {
+                    window.location.href = "dashboard.html"; // Redirection vers dashboard.html
+                }, 500); // Délai de 500ms pour que l'utilisateur voit la soumission
+            }
+        });
+    </script>
+</body>
+</html>

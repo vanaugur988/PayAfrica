@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chargement - PayAfrica</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url('fond.jpg'); /* Chemin vers ton fond */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .loading-container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .loading-container h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .dot {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: white;
+            border-radius: 50%;
+            animation: bounce 0.6s infinite alternate;
+        }
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <h1>Bienvenue sur PayAfrica</h1>
+        <p>Chargement en cours...</p>
+        <div class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <script>
+        // Redirection après 3 secondes
+        setTimeout(function() {
+            window.location.href = 'page_accueil.html'; // URL de la page d'accueil
+        }, 3000);
+    </script>
+</body>
+</html>

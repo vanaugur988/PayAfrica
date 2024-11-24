@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayAfrica - Accueil</title>
+    <!-- Lien vers Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #004aad;
+            color: white;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+        header nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        header nav a i {
+            margin-right: 8px;
+        }
+        .hero {
+            background: url('large-logo.png') no-repeat center center/cover;
+            text-align: center;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #004aad; /* Texte "Bienvenue sur PayAfrica" en bleu */
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: black; /* Texte noir pour "Envoyez, recevez et gérez vos paiements..." */
+        }
+        .hero a {
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .hero a:hover {
+            background-color: #f0b000;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px 10%;
+            background-color: #f9f9f9;
+        }
+        .features .feature {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .features .feature:hover {
+            transform: scale(1.05);
+        }
+        .features .feature img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .cta {
+            text-align: center;
+            padding: 40px 10%;
+            background-color: #004aad;
+            color: white;
+        }
+        .cta a {
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .cta a:hover {
+            background-color: #f0b000;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 10%;
+            position: relative;
+        }
+        footer .footer-links {
+            margin: 20px 0;
+        }
+        footer .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        footer .footer-links a:hover {
+            color: #ffcc00;
+        }
+        footer .social-icons {
+            margin-top: 10px;
+        }
+        footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer .social-icons a:hover {
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1 class="title">PayAfrica</h1>
+        <nav>
+            <a href="#"><i class="fas fa-info-circle"></i>À propos</a>
+            <a href="#features"><i class="fas fa-cogs"></i>Fonctionnalités</a>
+            <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+            <a href="login.html"><i class="fas fa-sign-in-alt"></i>Se connecter</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Bienvenue sur PayAfrica</h1>
+        <p>Envoyez, recevez et gérez vos paiements en ligne en toute simplicité.</p>
+        <a href="inscription.html">Inscrivez-vous maintenant</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="feature">
+            <img src="transfert.webp" alt="Transfert rapide">
+            <h3>Transfert rapide</h3>
+            <p>Envoyez de l'argent instantanément où que vous soyez.</p>
+        </div>
+        <div class="feature">
+            <img src="ret.jpg" alt="Retrait simplifié">
+            <h3>Retrait simplifié</h3>
+            <p>Retirez vos fonds facilement via Mobile Money ou compte bancaire.</p>
+        </div>
+        <div class="feature">
+            <img src="nat.png" alt="Paiements internationaux">
+            <h3>Paiements internationaux</h3>
+            <p>Prenez en charge vos transactions au-delà des frontières.</p>
+        </div>
+        <div class="feature">
+            <img src="gar.jpg" alt="Sécurité garantie">
+            <h3>Sécurité garantie</h3>
+            <p>Vos transactions sont cryptées et protégées.</p>
+        </div>
+    </section>
+
+    <!-- Call-to-Action -->
+    <section class="cta">
+        <h2>Prêt à commencer ?</h2>
+        <a href="inscription.html">Créez votre compte dès maintenant</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Accueil</a>
+            <a href="#features">Fonctionnalités</a>
+            <a href="#contact">Contact</a>
+            <a href="#login">Se connecter</a>
+            <a href="#nous-contacter">Nous contacter</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>&copy; 2024 PayAfrica. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
